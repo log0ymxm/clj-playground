@@ -1,7 +1,6 @@
 (ns playground.core-test
-  (:use clojure.test
+  (:use midje.sweet
         playground.core))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(fact "math works"
+      (+ 2 2) => 4)
