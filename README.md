@@ -3,3 +3,8 @@
 From basic to advanced and everywhere inbetween, this book highlights and implements a broad array of classic and useful computer science algorithms across several different disciplines.
 
 Many thanks to reddit user [/u/blexim](http://www.reddit.com/user/blexim) for offering the [initial compilation of this list](http://www.reddit.com/r/compsci/comments/1kcal2/algorithims_everyone_should_know/cbnhcbz), and many of the other users who offered up some of their favorite algorithms as well.
+
+## Numeric
+
+- Euclid's Algorithm: Finding the greatest common denominator of a list of numbers
+- Gauss-Jordan Elimination: Linear algebra; Reducing a system of equations to find solutions.
