@@ -170,6 +170,7 @@ using gaussian elimination."
                 (eliminate B pivot)))
             A (range 0 m))))
 
+;; http://elonen.iki.fi/code/misc-notes/python-gaussj/
 ;; -> numeric git:(master) ✗ python ng.py
 ;; start [[2.0, -3.0, -8.0], [3.0, 4.0, 5.0]]
 ;; m x n 2 3
