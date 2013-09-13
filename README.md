@@ -6,5 +6,6 @@ Many thanks to reddit user [/u/blexim](http://www.reddit.com/user/blexim) for of
 
 ## Numeric
 
-- Euclid's Algorithm: Finding the greatest common denominator of a list of numbers
-- Gauss-Jordan Elimination: Linear algebra; Reducing a system of equations to find solutions.
+- *Euclid's Algorithm*: Finding the greatest common denominator of a list of numbers
+- *Gauss-Jordan Elimination*: Linear algebra; Reducing a system of equations to find solutions.
+- *Fast Fourier Transform*: A discrete fourier transform, for converting a time measure into a frequency.
