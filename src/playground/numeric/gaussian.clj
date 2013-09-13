@@ -281,6 +281,16 @@ reduce a row-echelon matrix"
 ;; 2. use back-substitution to find solution from a row-echelon matrix
 ;;    finding the solution set of a system of linear equations
 
-;; finding the rank of a matrix
-;; finding the determinant
-;; finding the inverse of an invertible square matrix
+;; TODO Finding the determinant of a square matrix
+;;   - find the determinant of the row-echelon matrix
+;;   - elementary row operations will change the determinant
+;;   - reverse elementary row ops
+;; TODO Finding the inverse of an invertible square matrix
+;;   - A
+;;   - augment original matrix with the identity matrix
+;;   - [ A | I ]
+;;   - if you can find the reduced row matrix, then
+;;   - [ I | B ]
+;;   - B is the inverse of A
+;; TODO Finding the rank of a matrix
+;;   - number of non-zero rows in row echelon matrix
