@@ -8,6 +8,8 @@
 ;; https://code.google.com/p/clojure-contrib/source/browse/trunk/src/clojure/contrib/complex_numbers.clj?r=756
 ;; http://sicpinclojure.com/?q=sicp/2-4-1-representations-complex-numbers
 
+;; http://www.altdevblogaday.com/2011/05/17/understanding-the-fourier-transform/
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; cooley-tukey
 
