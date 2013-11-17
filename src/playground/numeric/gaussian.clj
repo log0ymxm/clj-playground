@@ -1,8 +1,5 @@
 (ns playground.numeric.gaussian)
 ;; http://en.wikipedia.org/wiki/Gaussian_elimination
-
-;; TODO clean code, test code, make sure it's readable
-
 ;; https://github.com/skatenerd/gaussian_elimination
 ;; https://github.com/mjm/clojure-code/blob/master/math/linalg_rowred.clj
 
