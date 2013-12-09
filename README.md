@@ -1,4 +1,4 @@
-Various algorithms implemented in clojure. Just a learning exercise.
+Various algorithms implemented in clojure.
 
 ## Numeric
 
