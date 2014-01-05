@@ -4,9 +4,6 @@
 
 ;; http://en.wikipedia.org/wiki/Binary_tree
 
-(defn deftree []
-  {})
-
 (defn root [tree] (first tree))
 (def parent root)
 
