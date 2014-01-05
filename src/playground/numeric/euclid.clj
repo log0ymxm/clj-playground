@@ -26,8 +26,8 @@
           (recur (- a b) b)
           (recur a (- b a)))
         a))))
-(println "tracing gcd-subtraction")
-(trace-gcd-subtraction 1071 462)
+;(println "tracing gcd-subtraction")
+;(trace-gcd-subtraction 1071 462)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -41,8 +41,8 @@
   (if (= b 0)
     a
     (recur b (mod a b))))
-(println "tracing gcd-division")
-(trace-gcd-division 1071 462)
+;(println "tracing gcd-division")
+;(trace-gcd-division 1071 462)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,12 +53,10 @@
          b b-range]
      (fun a b))))
 
-(println "timing gcd-subtraction")
-(time
- (repeat-function gcd-subtraction 100 (range 0 100) (range 100 200)))
-(println "timing gcd-division")
-(time
- (repeat-function gcd-division 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-subtraction")
+;(time (repeat-function gcd-subtraction 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-division")
+;(time (repeat-function gcd-division 100 (range 0 100) (range 100 200)))
 
 (def gcd-s-memoized
   (memoize
@@ -80,12 +78,10 @@
        a
        (recur b (mod a b))))))
 
-(println "timing gcd-s-memoized")
-(time
- (repeat-function gcd-s-memoized 100 (range 0 100) (range 100 200)))
-(println "timing gcd-d-memoized")
-(time
- (repeat-function gcd-d-memoized 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-s-memoized")
+;(time (repeat-function gcd-s-memoized 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-d-memoized")
+;(time (repeat-function gcd-d-memoized 100 (range 0 100) (range 100 200)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -99,9 +95,8 @@
 (defn gcd-reduce [& numbers]
   (reduce gcd-division numbers))
 
-(println "timing gcd-reduce")
-(time
- (repeat-function gcd-reduce 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-reduce")
+;(time (repeat-function gcd-reduce 100 (range 0 100) (range 100 200)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -137,16 +132,14 @@
     ;; NOTE may be able to use iterate here, would be much cleaner
     (first (fixed-point [a b] remainder nil =))))
 
-(println "timing gcd-idiomatic")
-(time
- (repeat-function gcd-idiomatic 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-idiomatic")
+;(time (repeat-function gcd-idiomatic 100 (range 0 100) (range 100 200)))
 
 (defn gcd-i-reduce [& values]
   (reduce gcd-idiomatic values))
 
-(println "timing gcd-i-reduce")
-(time
- (repeat-function gcd-i-reduce 100 (range 0 100) (range 100 200)))
+;(println "timing gcd-i-reduce")
+;(time (repeat-function gcd-i-reduce 100 (range 0 100) (range 100 200)))
 
 ;; Looks like the non-memoized division version of the algorithm is the
 ;; most efficient for our simple needs, let's accept that as our default

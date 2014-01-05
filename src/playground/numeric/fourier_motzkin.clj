@@ -21,6 +21,15 @@
 (defn first-count [f M]
   (count (filter f (map first M))))
 
+(defn normalize-by-first
+  "Will divide all values of a vector according to the first element"
+  [a]
+  ;;(println "normalize-by-first" a)
+  (let [car (Math/abs (float (first a)))]
+    (if (not (zero? car))
+      (map #(/ % car) a)
+      a)))
+
 (defn reduce-rows [M]
   (println "--- reduce-rows" M)
   (let [sorted (sort-by first M)
@@ -42,15 +51,6 @@
 (defn size [M]
   [(count M) (count (first M))])
 
-(defn normalize-by-first
-  "Will divide all values of a vector according to the first element"
-  [a]
-  ;;(println "normalize-by-first" a)
-  (let [car (Math/abs (float (first a)))]
-    (if (not (zero? car))
-      (map #(/ % car) a)
-      a)))
-
 (defn scalar-matrix [k]
   (fn ! ([m n] (vec (take m (repeat (! n)))))
     ([m] (vec (take m (repeat k))))))
@@ -58,7 +58,7 @@
 (def zeros (scalar-matrix 0))
 (def ones (scalar-matrix 1))
 
-(defn fourmotz-elimination
+(defn fourier-motzkin-elimination
   [M & k]
   (let [A (map start M)
         b (map last M)
@@ -130,7 +130,7 @@
             temp-A (map start reduced)
             temp-b (map last reduced)
             _ (println "tmp-A" temp-A "tmp-b" temp-b)
-            recursive-result (fourmotz-elimination temp-A temp-b to-eliminate)
+            recursive-result (fourier-motzkin-elimination temp-A temp-b to-eliminate)
             _ (println "recursive-result" recursive-result)
             ]
         recursive-result)

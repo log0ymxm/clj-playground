@@ -1,4 +1,4 @@
-(ns playground.numeric.fft)
+(ns playground.numeric.fast-fourier)
 ;; http://en.wikipedia.org/wiki/Fast_Fourier_transform
 ;; http://www.mathworks.com/help/matlab/ref/fft.html
 
