@@ -36,21 +36,18 @@
 ;;         endfor
 ;;     endif
 
-(deftype complex [^double real ^double imaginary])
+(deftype complex [^Double real ^Double imaginary])
+(def i (complex 0 1))
 
 (defn is-power-2? [n]
   (and (not (= n 0))
        (= (bit-and n (dec n)) 0)))
 
-(defn twiddle-factor [k N]
-  ;; TODO i is imaginary not 1
+(defn pivot [k N]
   (let [i 1]
     (Math/exp (/ (* -2 Math/PI i k)
                  N))))
 
-;; scaling factor? 1, (sqrt N), N
-
-;; TODO this might be correct, need to try implementing complex numbers
 (defn fast-fourier-transform [X]
   {:pre [(is-power-2? (count X))]}
   (let [N (count X)]
@@ -61,17 +58,13 @@
             second-range (fast-fourier-transform (keep-indexed #(if (odd? %1) %2) X))
             _ (println "--- 1, 2" first-range second-range)
             partitioned (partition 2 X)]
-        ;;(println "partitioned" partitioned)
         (flatten
-                (map (fn [a b k]
-                       (let [factor (twiddle-factor k N)
-                             a* (+ a factor)
-                             b* (- a factor)]
-                         (println "    - " factor "-" a* b*)
-                         [a* b*]))
-                     first-range
-                     second-range
-                     (range 0 (count first-range))))))))
+         (map (fn [a b k]
+                (let [factor (pivot k N)]
+                  [(+ a factor) (- a factor)]))
+              first-range
+              second-range
+              (range 0 (count first-range))))))))
 
 ;; http://stackoverflow.com/questions/6177744/what-is-correct-result-after-fft-if-input-array-is-0-1-2-3-4-5-6-7
 ;; (fft [0 1 2 3 4 5 6 7])
@@ -95,5 +88,4 @@
 ;;  -1.41421 + 1.41421i,
 ;;  -1.41421 + 3.41421i}
 
-;; TODO try generating a set of data with mathematica
 ;; http://www.mathworks.com/help/matlab/ref/fft.html
